@@ -1,17 +1,20 @@
 package main
 
-import (
-	"test"
-	"fmt"
-	"testing"
-)
-
-func sum(a int, b int) int{
-	return a + b
-}
-
+import "fmt"
 
 func main() {
+	var orm Orm
+	err := orm.Init("user=postgres password=3228 host=localhost port=5432 dbname=smarthome sslmode=verify-ca")
 
-    fmt.Println("Hello, World!")
+	for i := 1; i <= 10; i++ {
+		fmt.Print(i, " ")
+		fmt.Println(orm.GetStateByDeviceId(Id(i)))
+	}
+
+	if(err != nil){
+		fmt.Println(err)
+	}
+
+
+
 }
