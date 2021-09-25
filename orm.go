@@ -40,19 +40,3 @@ func (orm *Orm) GetStateByDeviceId(id Id) (state bool, err error){
 func (orm *Orm) Close(){
 	orm.conn.Close(context.Background())
 }
-
-
-//func main() {
-//
-//
-//	rows, err := conn.Query(context.Background(), "select * from statesdb")
-//	for rows.Next() {
-//		rows.Scan(&states.Id, &states.Name, &states.State)
-//		fmt.Println(states)
-//	}
-//	if err != nil {
-//		fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
-//		os.Exit(1)
-//	}
-//
-//}

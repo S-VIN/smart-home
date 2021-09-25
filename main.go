@@ -1,20 +1,23 @@
 package main
 
-import "fmt"
+import (
+	conn "connectors"
+)
 
 func main() {
-	var orm Orm
-	err := orm.Init("user=postgres password=3228 host=localhost port=5432 dbname=smarthome sslmode=verify-ca")
+	//var orm Orm
+	//err := orm.Init("user=postgres password=3228 host=localhost port=5432 dbname=smarthome sslmode=verify-ca")
 
-	for i := 1; i <= 10; i++ {
-		fmt.Print(i, " ")
-		fmt.Println(orm.GetStateByDeviceId(Id(i)))
-	}
+	//for i := 1; i <= 10; i++ {
+	//	fmt.Print(i, " ")
+	//	fmt.Println(orm.GetStateByDeviceId(Id(i)))
+	//}
+	//
+	//if(err != nil){
+	//	fmt.Println(err)
+	//}
 
-	if(err != nil){
-		fmt.Println(err)
-	}
-
+	var con connectors.Connections
 
 
 }
