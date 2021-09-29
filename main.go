@@ -1,7 +1,7 @@
 package main
 
 import (
-	conn "connectors"
+	con "github.com/S-VIN/smart-home/tree/master/pkg/connectors"
 )
 
 func main() {
@@ -17,7 +17,11 @@ func main() {
 	//	fmt.Println(err)
 	//}
 
-	var con connectors.Connections
+	//conn.Init()
+
+	con.NewConnection(":1111")
+
 
 
 }
+
