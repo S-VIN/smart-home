@@ -1,18 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "orm/statedb.h"
+#include "Orm/statedb.h"
+#include "Connectors/Usual.h"
 
 int main()
 {
-    States s;
-
-    auto res = s.getIds();
-
-    if(s.getStateById(11)){
-        cout << s.getStateById(11).value();
-    }
-
-
+    UsualConnector connector;
+    connector.Connect({"","",""});
     return 0;
 }

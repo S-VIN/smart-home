@@ -1,6 +1,6 @@
 #pragma once
 #include "Connections.h"
-#include "Basis.h"
+#include "../Basis.h"
 #include <pqxx/pqxx>
 #include <vector>
 #include <iostream>
@@ -16,9 +16,7 @@ public:
         pqxx::work W{conn};
         pqxx::result R{W.exec("SELECT id_device FROM statesdb")};
         std::vector<int> res;
-        for (auto const &field: R) {
-            res.push_back(field.at(0).as<int>());
-        }
+        std::transform(R.begin(), R.end(), std::back_inserter(res), [](pqxx::row r){return r.at(0).as<int>();});
         return res;
     }
 
@@ -37,5 +35,6 @@ public:
         pqxx::work W{conn};
         W.exec(" INSERT INTO statesdb (id_device, name_of_device, state) VALUES (nextval('states_sequence'), '" + aName + "', " +
                        boolToString(aInitState) + ");");
+    return 0;
     }
 };

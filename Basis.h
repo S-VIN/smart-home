@@ -1,6 +1,6 @@
 #include <string>
 
-string boolToString(bool aInput){
+std::string boolToString(bool aInput){
     if(aInput){
         return "true";
     }
